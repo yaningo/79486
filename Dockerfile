@@ -16,4 +16,5 @@ ENV ROSLYN_COMPILER_LOCATION C:\Program Files (x86)\Microsoft Visual Studio\2017
 
 # Define the entry point for the Docker container.
 # This entry point starts the developer command prompt and launches the PowerShell shell.
-ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
+ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat"]
+CMD ["powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
