@@ -8,7 +8,7 @@ FROM ${FROM_IMAGE}
 SHELL ["cmd", "/S", "/C"]
 
 # Copy our Install script.
-COPY Install.cmd C:\TEMP\
+#COPY Install.cmd C:\TEMP\
 
 # Download collect.exe in case of an install failure.
 ADD https://aka.ms/vscollect.exe C:\TEMP\collect.exe
