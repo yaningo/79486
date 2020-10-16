@@ -10,7 +10,7 @@ FROM mcr.microsoft.com/dotnet/framework/sdk:4.7.2-windowsservercore-ltsc2019
 # Install Build Tools with the Microsoft.VisualStudio.Workload.AzureBuildTools workload, excluding workloads and components with known issues.
 ENV ChocolateyUseWindowsCompression true
 RUN Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-RUN choco install visualstudio2017buildtools --version=15.9.21.0
+RUN choco install -y visualstudio2017buildtools --version=15.9.21.0
 ENV ROSLYN_COMPILER_LOCATION C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\Roslyn
 
 # Define the entry point for the Docker container.
