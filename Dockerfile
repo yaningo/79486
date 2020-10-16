@@ -1,7 +1,7 @@
 # escape=`
 
 # Use a specific tagged image.
-ARG FROM_IMAGE=mcr.microsoft.com/dotnet/framework/sdk:4.7.2-windowsservercore-ltsc2019
+ARG FROM_IMAGE=mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
 FROM ${FROM_IMAGE}
 
 # Restore the default Windows shell for correct batch processing.
