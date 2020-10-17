@@ -10,14 +10,7 @@ jobs:
       shell: powershell.exe
     steps:
       - run: systeminfo
-      - checkout
-      - run:
-          command: |
-              mkdir C:\BuildTools
-              mkdir C:\TEMP
-              cp Dockerfile C:\TEMP
-              cd C:\TEMP
-              
+      - checkout              
       - run:
           #shell: cmd.exe
           command: |
