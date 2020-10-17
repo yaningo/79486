@@ -11,6 +11,7 @@ RUN mkdir C:\TEMP
 RUN curl -k -L https://aka.ms/vs/15/release/vs_buildtools.exe --output C:\TEMP\vs_buildtools.exe --retry 3
 
 # Install Build Tools with the Microsoft.VisualStudio.Workload.AzureBuildTools workload, excluding workloads and components with known issues.
+RUN mkdir C:\BuildTools
 RUN C:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache --installPath C:\BuildTools --add Microsoft.VisualStudio.Workload.AzureBuildTools --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 --remove Microsoft.VisualStudio.Component.Windows81SDK  || IF "%ERRORLEVEL%"=="3010" EXIT 0
 ENV ROSLYN_COMPILER_LOCATION C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\Roslyn
 
