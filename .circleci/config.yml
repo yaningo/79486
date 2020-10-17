@@ -13,4 +13,4 @@ jobs:
       - run:
           command: |
               docker build -t buildtools2017:latest -m 4GB .
-              docker run --rm buildtools2017 msbuild -v
+              docker run --rm buildtools2017 msbuild -version
