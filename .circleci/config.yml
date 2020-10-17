@@ -9,15 +9,7 @@ jobs:
       name: win/default
       shell: powershell.exe
     steps:
-      - run: systeminfo
       - checkout
       - run:
           command: |
-              mkdir C:\BuildTools
-              cp Dockerfile C:\BuildTools              
-              
-      - run:
-          #shell: cmd.exe
-          command: |
-              cd C:\BuildTools
               docker build -t buildtools2017:latest -m 4GB .
