@@ -14,7 +14,9 @@ jobs:
       - run:
           command: |
               mkdir C:\BuildTools
-              mkdir C:\TEMP              
+              mkdir C:\TEMP
+              cp Dockerfile C:\TEMP
+              cd C:\TEMP
               
       - run:
           #shell: cmd.exe
