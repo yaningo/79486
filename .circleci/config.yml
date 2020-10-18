@@ -13,10 +13,12 @@ jobs:
       - run:
           name: Build image
           command: |
-              docker build -t buildtools2017:latest -m 4GB .
+              docker build -t buildtools2017:latest -m 8GB .
               
       - run:
           name: Use executable container
           command: |
               docker run --rm buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat
               docker run --rm buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
+              docker run --rm buildtools2017 MSBuild -version
+              
