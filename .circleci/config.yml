@@ -14,6 +14,10 @@ jobs:
           name: Build image
           command: |
               docker build -t buildtools2017:latest -m 8GB .
+              
+       - run:
+          name: Push image to Docker Hub
+          command: |
               docker login -u="$DOCKER_LOGIN" -p="$DOCKER_PASSWORD" docker.io
               docker tag buildtools2017:latest yaningo/buildtools2017:latest
               docker push yaningo/buildtools2017:latest
