@@ -13,8 +13,9 @@ jobs:
       - run:
           name: Build image
           command: |
-              docker build -t yaningo/buildtools2017:latest -m 8GB .
-              docker login -u="$DOCKER_LOGIN" -p="$DOCKER_PASSWORD"
+              docker build -t buildtools2017:latest -m 8GB .
+              docker login -u="$DOCKER_LOGIN" -p="$DOCKER_PASSWORD" docker.io
+              docker tag buildtools2017:latest yaningo/buildtools2017:latest
               docker push yaningo/buildtools2017:latest
               
       - run:
