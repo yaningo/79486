@@ -11,6 +11,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Build image
           command: |
               docker build -t buildtools2017:latest -m 4GB .
+              
+      - run:
+          name: Use executable container
+          command: |
               docker run --rm buildtools2017 msbuild -version
