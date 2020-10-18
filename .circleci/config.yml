@@ -19,4 +19,4 @@ jobs:
           name: Use executable container
           command: |
               docker run --rm buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat
-              docker run --rm buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\msbuild -version
+              docker run --rm buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
