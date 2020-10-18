@@ -13,12 +13,13 @@ jobs:
       - run:
           name: Build image
           command: |
-              docker build -t buildtools2017:latest -m 8GB .
+              docker build -t yaningo/buildtools2017:latest -m 8GB .
+              docker push yaningo/buildtools2017:latest
               
       - run:
           name: Use executable container
           command: |
-              docker run --rm buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat
-              docker run --rm buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
-              docker run --rm buildtools2017 MSBuild -version
+              docker run --rm yaningo/buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat
+              docker run --rm yaningo/buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
+              docker run --rm yaningo/buildtools2017 MSBuild -version
               
