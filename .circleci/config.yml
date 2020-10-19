@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Push image to Docker Hub
           command: |
-              echo $DOCKER_PASSWORD | docker login --username "$DOCKER_LOGIN" --password-stdin
+              echo $DOCKER_PASSWORD | docker login --username $DOCKER_LOGIN --password-stdin
               docker tag buildtools2017:latest yaningo/buildtools2017:latest
               docker push yaningo/buildtools2017:latest
               
