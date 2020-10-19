@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   win: circleci/windows@2.2.0
-  docker: circleci/docker@1.5.0
 
 jobs:
   build:
@@ -16,9 +15,11 @@ jobs:
           command: |
               docker build -t yaningo/buildtools2017:latest -m 8GB .
               
-      - docker/push:
-          - image: yaningo/buildtools2017
-          - tag: latest
+      - run:
+          name: Push image
+          command: |
+              echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+              docker push yaningo/buildtools2017:latest
               
       - run:
           name: Use executable container
