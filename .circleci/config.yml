@@ -13,8 +13,8 @@ jobs:
           name: Install build tools 2017
           command: |
               $Env:ChocolateyUseWindowsCompression = 'true'
-              #Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-              #Start-Process powershell -Verb runAs
+              Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+              Start-Process powershell -Verb runAs
               choco install -y visualstudio2017buildtools
               $Env:ROSLYN_COMPILER_LOCATION = 'C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\Roslyn'
               ls C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools
@@ -25,5 +25,6 @@ jobs:
           #shell: cmd.exe
           command: |
               msbuild -version
-              C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat
+              C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat -arch=amd64 -host_arch=amd64
+              msbuild -version
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
