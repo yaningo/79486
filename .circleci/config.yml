@@ -23,7 +23,7 @@ jobs:
           name: Check MSBuild version
           shell: cmd.exe
           command: |
-              set
+              set ROSLYN_COMPILER_LOCATION='C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\Roslyn'
               refreshenv
               msbuild -version
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat -arch=amd64 -host_arch=amd64
