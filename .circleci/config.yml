@@ -18,8 +18,8 @@ jobs:
       - run:
           name: Push image
           command: |
-              echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-              docker push yaningo/buildtools2017:latest
+              sudo echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+              sudo docker push yaningo/buildtools2017:latest
               
       - run:
           name: Use executable container
