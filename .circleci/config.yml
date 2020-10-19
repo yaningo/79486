@@ -7,16 +7,17 @@ jobs:
   build:
     executor:
       name: win/default
-      shell: cmd.exe
+      shell: powershell.exe
     steps:
       - run:
           name: Install build tools 2017
           command: |
-              set ChocolateyUseWindowsCompression=true
+              $Env:ChocolateyUseWindowsCompression = 'true'
               choco install -y visualstudio2017buildtools
-              set ROSLYN_COMPILER_LOCATION=C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\Roslyn
+              $Env:ROSLYN_COMPILER_LOCATION = 'C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\Roslyn'
       - run:
           name: Check MSBuild version
+          shell: cmd.exe
           command: |
               msbuild -version
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat
