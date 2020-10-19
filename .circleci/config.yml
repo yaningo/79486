@@ -1,3 +1,6 @@
+orbs:
+  docker: circleci/docker@1.5.0
+  
 version: 2.1
 
 orbs:
@@ -13,14 +16,11 @@ jobs:
       - run:
           name: Build image
           command: |
-              docker build -t buildtools2017:latest -m 8GB .
+              docker build -t yaningo/buildtools2017:latest -m 8GB .
               
-      - run:
-          name: Push image to Docker Hub
-          command: |
-              echo $DOCKER_PASSWORD | docker login --username $DOCKER_LOGIN --password-stdin
-              docker tag buildtools2017:latest yaningo/buildtools2017:latest
-              docker push yaningo/buildtools2017:latest
+      - docker/push:
+          - image: yaningo/buildtools2017
+          - tag: latest
               
       - run:
           name: Use executable container
