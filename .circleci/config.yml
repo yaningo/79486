@@ -21,10 +21,10 @@ jobs:
               
       - run:
           name: Check MSBuild version
-          #shell: cmd.exe
+          shell: cmd.exe
           command: |
-              $env
-              $env:ROSLYN_COMPILER_LOCATION = [System.Environment]::GetEnvironmentVariable("ROSLYN_COMPILER_LOCATION")
+              set
+              refreshenv
               msbuild -version
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat -arch=amd64 -host_arch=amd64
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
