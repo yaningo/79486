@@ -7,18 +7,17 @@ jobs:
   build:
     executor:
       name: win/default
-      shell: powershell.exe
+      shell: cmd.exe
     steps:
-      - run: systeminfo
-      - checkout              
       - run:
-          #shell: cmd.exe
-          name: Build image
+          name: Install build tools 2017
           command: |
-              docker build -t buildtools2017 -m 8GB .
-              
+              set ChocolateyUseWindowsCompression=true
+              choco install -y visualstudio2017buildtools
+              set ROSLYN_COMPILER_LOCATION=C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\Roslyn
       - run:
-          name: Use executable container
+          name: Check MSBuild version
           command: |
-              docker run --rm buildtools2017 C:\BuildTools\Common7\Tools\VsDevCmd.bat
-              docker run --rm buildtools2017 msbuild -version
+              msbuild -version
+              C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat
+              C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
