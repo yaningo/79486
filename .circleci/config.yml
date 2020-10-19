@@ -17,6 +17,8 @@ jobs:
               Start-Process powershell -Verb runAs
               choco install -y visualstudio2017buildtools
               $Env:ROSLYN_COMPILER_LOCATION = 'C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\Roslyn'
+              cd C:\"Program Files (x86)"\"Microsoft Visual Studio"
+              ls
       - run:
           name: Check MSBuild version
           shell: cmd.exe
