@@ -13,7 +13,11 @@ jobs:
           command: |
               $Env:ChocolateyUseWindowsCompression = 'true'
               choco install openjdk
-              & java -version
+                            
+      - run:
+          name: Check Java version
+          shell: cmd.exe
+          command: java -version
 
 
 
