@@ -9,10 +9,11 @@ jobs:
       
     steps:
       - run:
-          name: Install build tools 2017
+          name: Install openJDK 15
           command: |
               $Env:ChocolateyUseWindowsCompression = 'true'
               choco install openjdk
+              java -version
 
 
 
