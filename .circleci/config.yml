@@ -16,8 +16,7 @@ jobs:
                             
       - run:
           name: Check Java version
-          shell: cmd.exe
-          command: java -version
+          command: ls C:\"Program Files"\Openjdk
 
 
 
