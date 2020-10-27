@@ -16,7 +16,9 @@ jobs:
                             
       - run:
           name: Check Java version
-          command: ls C:\"Program Files"\Openjdk
+          command: |
+              ls C:\"Program Files"\Openjdk
+              Get-NetIPAddress
 
 
 
