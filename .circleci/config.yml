@@ -13,7 +13,7 @@ jobs:
           name: Install build tools 2017
           command: |
               $Env:ChocolateyUseWindowsCompression = 'true'
-              choco install visualstudio2017buildtools --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
+              choco install visualstudio2017buildtools --package-parameters "--allWorkloads --includeRecommended --includeOptional"
               
       - run:
           name: Check MSBuild version
