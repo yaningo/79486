@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Use executable container
           command: |
-              docker run --rm yaningo/buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat -arch=amd64 -host_arch=amd64
-              docker run --rm yaningo/buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
-              docker run --rm yaningo/buildtools2017 MSBuild -version
-              
+              #docker run --rm yaningo/buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat -arch=amd64 -host_arch=amd64
+              #docker run --rm yaningo/buildtools2017 C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
+              #docker run --rm yaningo/buildtools2017 MSBuild -version
+              docker run --rm circleci/python pwd
