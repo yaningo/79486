@@ -25,8 +25,11 @@ jobs:
               #(Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages
               (Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages | Where-Object { $_.Id -like '*Workload*' } | select -ExpandProperty Id
               (Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages | Where-Object { $_.Id -like '*Component*' } | select -ExpandProperty Id
-              Get-VSSetupInstance | Select-VSSetupInstance -Latest -Require Microsoft.VisualStudio.Component.VC.Tools.x86.x64
-
+              (Get-VSSetupInstance | Select-VSSetupInstance -Latest -Require Microsoft.VisualStudio.Component.VC.Tools.x86.x64)
+              
+      - store_artifacts:
+          path: C:\ProgramData\chocolatey\logs\chocolatey.log
+          destination: chocolatey.log
 
               
       - run:
