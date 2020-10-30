@@ -15,7 +15,8 @@ jobs:
               $Env:ChocolateyUseWindowsCompression = 'true'
               #choco install visualstudio2017buildtools --package-parameters "--includeRecommended" -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK;VisualCppBuildTools_NETFX_SDK"
               #choco install visualstudio2017buildtools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64
-              choco install visualstudio2017buildtools --version=15.8.2.0 --package-parameters "--no-includeOptional --no-includeRecommended"
+              choco install visualstudio2017buildtools --package-parameters "--no-includeOptional --no-includeRecommended"
+              choco install visualstudio2019buildtools
 
               #choco install visualstudio2017-workload-vctools
               #choco install microsoft-visual-cpp-build-tools -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK; VisualCppBuildTools_NETFX_SDK"
