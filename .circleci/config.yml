@@ -15,8 +15,9 @@ jobs:
               $Env:ChocolateyUseWindowsCompression = 'true'
               #choco install visualstudio2017buildtools --package-parameters "--includeRecommended" -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK;VisualCppBuildTools_NETFX_SDK"
               #choco install visualstudio2017buildtools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64
-              choco install visualstudio2017buildtools --package-parameters "--noUpdateInstaller --no-includeOptional --no-includeRecommended --installChannelUri https://aka.ms/vs/15/release/channel"
+              choco install visualstudio2017buildtools --package-parameters "--noUpdateInstaller --no-includeOptional --no-includeRecommended --installChannelUri https://aka.ms/vs/15/release/channel --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 --remove Microsoft.VisualStudio.Component.Windows81SDK"
               #choco install visualstudio2019buildtools
+              choco uninstall visualstudio2019buildtools
 
               #choco install visualstudio2017-workload-vctools
               #choco install microsoft-visual-cpp-build-tools -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK; VisualCppBuildTools_NETFX_SDK"
@@ -35,7 +36,7 @@ jobs:
               
       - run:
           name: Check MSBuild version
-          #shell: cmd.exe
+          shell: cmd.exe
           command: |
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat -arch=amd64 -host_arch=amd64
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
