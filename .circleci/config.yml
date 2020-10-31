@@ -35,10 +35,10 @@ jobs:
               
       - run:
           name: Check MSBuild version
-          shell: cmd.exe
+          #shell: cmd.exe
           command: |
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat -arch=amd64 -host_arch=amd64
-              dir C:\"Program Files (x86)"\"Microsoft Visual Studio"
+              ls "C:\Program Files (x86)\Microsoft Visual Studio\"
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
               setx /M PATH "$Env:PATH;C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
               MSBuild.exe -version
