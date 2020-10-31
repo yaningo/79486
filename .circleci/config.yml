@@ -16,17 +16,16 @@ jobs:
               #choco install visualstudio2017buildtools --package-parameters "--includeRecommended" -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK;VisualCppBuildTools_NETFX_SDK"
               #choco install visualstudio2017buildtools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64
               choco install visualstudio2017buildtools --package-parameters "--noUpdateInstaller --no-includeOptional --no-includeRecommended --installChannelUri https://aka.ms/vs/15/release/channel --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 --remove Microsoft.VisualStudio.Component.Windows81SDK"
-              #choco install visualstudio2019buildtools
               choco uninstall visualstudio2019buildtools
 
               #choco install visualstudio2017-workload-vctools
               #choco install microsoft-visual-cpp-build-tools -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK; VisualCppBuildTools_NETFX_SDK"
               
-              #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-              #Install-Module VSSetup -Scope CurrentUser -Force
-              #(Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages
-              #(Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages | Where-Object { $_.Id -like '*Workload*' } | select -ExpandProperty Id
-              #(Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages | Where-Object { $_.Id -like '*Component*' } | select -ExpandProperty Id
+              Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+              Install-Module VSSetup -Scope CurrentUser -Force
+              (Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages
+              (Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages | Where-Object { $_.Id -like '*Workload*' } | select -ExpandProperty Id
+              (Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages | Where-Object { $_.Id -like '*Component*' } | select -ExpandProperty Id
               
               
       - store_artifacts:
@@ -39,6 +38,7 @@ jobs:
           shell: cmd.exe
           command: |
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\Common7\Tools\VsDevCmd.bat -arch=amd64 -host_arch=amd64
+              dir C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
               setx /M PATH "$Env:PATH;C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
               MSBuild.exe -version
