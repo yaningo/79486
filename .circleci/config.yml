@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Install build tools 2017
           command: |
-              curl -L --output vs_buildtools.exe --url https://aka.ms/vs/15/release/vs_buildtools.exe
+              curl -L https://aka.ms/vs/15/release/vs_buildtools.exe --output vs_buildtools.exe
               vs_buildtools.exe --norestart --wait --noUpdateInstaller --no-includeOptional --no-includeRecommended --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 --remove Microsoft.VisualStudio.Component.Windows81SDK
               dir
               
