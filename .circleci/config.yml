@@ -7,7 +7,7 @@ jobs:
   build:
     executor:
       name: win/default
-      shell: cmd.exe
+      # shell: cmd.exe
     steps:
       - run:
           name: Install build tools 2017
