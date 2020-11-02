@@ -42,5 +42,6 @@ jobs:
               ls "C:\Program Files (x86)\Microsoft Visual Studio\"
               C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe -version
               $env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
+              refreshenv
               MSBuild.exe -version
               
