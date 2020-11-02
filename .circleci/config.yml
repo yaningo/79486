@@ -15,7 +15,9 @@ jobs:
               $Env:ChocolateyUseWindowsCompression = 'true'
               #choco install visualstudio2017buildtools --package-parameters "--includeRecommended" -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK;VisualCppBuildTools_NETFX_SDK"
               #choco install visualstudio2017buildtools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64
-              choco install visualstudio2017buildtools --package-parameters "--noUpdateInstaller --no-includeOptional --no-includeRecommended --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 --remove Microsoft.VisualStudio.Component.Windows81SDK --add Microsoft.VisualStudio.Component.VC.ATL"
+              choco install visualstudio2017buildtools --package-parameters "--noUpdateInstaller --no-includeOptional --no-includeRecommended --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 --remove Microsoft.VisualStudio.Component.Windows81SDK --add Microsoft.VisualStudio.Workload.VCTools --remove Microsoft.VisualStudio.Workload.OfficeBuildTools --remove Microsoft.VisualStudio.Workload.NodeBuildTools --remove Microsoft.VisualStudio.Workload.AzureBuildTools
+
+"
               #choco uninstall visualstudio2019buildtools
 
               #choco install visualstudio2017-workload-vctools
