@@ -12,6 +12,7 @@ jobs:
       - run:
           name: Install build tools 2017
           command: |
-              REM curl -L https://aka.ms/vs/15/release/vs_buildtools.exe --output vs_buildtools.exe
+              Start-Process powershell -Verb runAs
+              # curl -L https://aka.ms/vs/15/release/vs_buildtools.exe --output vs_buildtools.exe
               vs_buildtools.exe --norestart --wait --noUpdateInstaller --no-includeOptional --no-includeRecommended --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 --remove Microsoft.VisualStudio.Component.Windows81SDK
-              dir "C:\Program Files (x86)\Microsoft Visual Studio"
+              ls "C:\Program Files (x86)\Microsoft Visual Studio"
