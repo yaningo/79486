@@ -13,7 +13,7 @@ jobs:
           name: Install build tools
           command: |
 
-              choco install -y vcbuildtools
+              choco install microsoft-build-tools --version=14.0.25420.1
               
               
       - store_artifacts:
