@@ -14,7 +14,7 @@ jobs:
           name: Install build tools
           command: |
 
-              choco install visualcpp-build-tools -version 14.0.25420.1 -y
+              hoco install -y vcbuildtools
               
               
       - store_artifacts:
