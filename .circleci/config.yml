@@ -16,7 +16,7 @@ jobs:
               choco list -lo | Where-object { $_.ToLower().StartsWith("visualcpp".ToLower()) }
               if($result -ne $null){
               $parts = $result.Split(' ');
-	                            return $parts[1] -eq $this.Version;
+                              return $parts[1] -eq $this.Version;
               }
               return $false;    
               
