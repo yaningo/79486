@@ -13,7 +13,7 @@ jobs:
           name: Install build tools
           command: |
 
-              choco install visualcppbuildtools --version=14.0.25123.0
+              choco uninstall visualcpp-build-tools --version=14.0.25420.1
               
               
       - store_artifacts:
