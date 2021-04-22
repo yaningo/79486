@@ -7,7 +7,6 @@ jobs:
   build:
     executor:
       name: win/default
-      version: previous
       shell: powershell.exe
     steps:
       - run:
