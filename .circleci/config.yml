@@ -14,7 +14,7 @@ jobs:
           command: |
               Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-              choco install -y -version 14.0.25420.1
+              choco install visualcpp-build-tools --version=15.0.26228.0
               
               
       - store_artifacts:
