@@ -13,7 +13,7 @@ jobs:
           name: Install build tools
           command: |
 
-              choco uninstall visualcpp-build-tools --version=14.0.25420.1
+              choco install visualcpp-build-tools --version=14.0.25420.1 --params "'/IncludeRecommended'"
               
               
       - store_artifacts:
