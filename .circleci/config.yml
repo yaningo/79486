@@ -12,12 +12,9 @@ jobs:
       - run:
           name: Install build tools 2017
           command: |
-          
-              choco install -y visualcpp-build-tools -version 14.0.25420.1
+              Install-Module VSSetup -Scope CurrentUser -Force
 
-              #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-              #Install-Module VSSetup -Scope CurrentUser -Force
-              
+              choco install -y visualcpp-build-tools -version 14.0.25420.1
               
               
       - store_artifacts:
