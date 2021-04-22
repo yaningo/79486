@@ -21,8 +21,8 @@ jobs:
           destination: chocolatey.log
           
       - store_artifacts:
-          path: C:\Users\circleci\AppData\Local\Temp\chocolatey\visualcpp-build-tools.log
-          destination: visualcpp-build-tools.log
+          path: C:\Users\circleci\AppData\Local\Temp\chocolatey\vs.log
+          destination: vs.log
           
           
           
