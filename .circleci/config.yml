@@ -14,9 +14,7 @@ jobs:
           command: |
               #$Env:ChocolateyUseWindowsCompression = 'true'
               
-              Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-              choco install visualcpp-build-tools -version 14.0.25420.1 -y
+              choco install visualcpp-build-tools -version 14.0.25420.1 -y --force
 
               #choco install visualstudio2017-workload-vctools
               #choco install microsoft-visual-cpp-build-tools -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK; VisualCppBuildTools_NETFX_SDK"
