@@ -12,16 +12,18 @@ jobs:
       - run:
           name: Install build tools 2017
           command: |
-              $Env:ChocolateyUseWindowsCompression = 'true'
-              Start-Process powershell -Verb runAs
+          
+              choco list -lo | Where-object { $_.ToLower().StartsWith("visualcpp".ToLower()) }
+              if($result -ne $null){
+              $parts = $result.Split(' ');
+	                            return $parts[1] -eq $this.Version;
+              }
+              return $false;    
               
               choco install -y visualcpp-build-tools -version 14.0.25420.1
 
-              #choco install visualstudio2017-workload-vctools
-              #choco install microsoft-visual-cpp-build-tools -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK; VisualCppBuildTools_NETFX_SDK"
-              
               #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-              #Install-Module VSSetup -Scope CurrentUser -Force
+              Install-Module VSSetup -Scope CurrentUser -Force
               
               
               
