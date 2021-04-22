@@ -7,13 +7,14 @@ jobs:
   build:
     executor:
       name: win/default
+      version: previous
       shell: powershell.exe
     steps:
       - run:
           name: Install build tools
           command: |
 
-              choco install microsoft-build-tools --version=14.0.25420.1
+              choco install visualcpp-build-tools -version 14.0.25420.1 -y
               
               
       - store_artifacts:
