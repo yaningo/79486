@@ -12,20 +12,16 @@ jobs:
       - run:
           name: Install build tools 2017
           command: |
-              $Env:ChocolateyUseWindowsCompression = 'true'
-              #choco install visualstudio2017buildtools --package-parameters "--includeRecommended" -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK;VisualCppBuildTools_NETFX_SDK"
-              #choco install visualstudio2017buildtools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64
-              choco install visualstudio2017buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.VCTools"
-              #choco uninstall visualstudio2019buildtools
+              #$Env:ChocolateyUseWindowsCompression = 'true'
+              
+              choco install visualcpp-build-tools -version 14.0.25420.1 -y
 
               #choco install visualstudio2017-workload-vctools
               #choco install microsoft-visual-cpp-build-tools -installargs "/InstallSelectableItems VisualCppBuildTools_ATLMFC_SDK; VisualCppBuildTools_NETFX_SDK"
               
               #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
               #Install-Module VSSetup -Scope CurrentUser -Force
-              #(Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages
-              #(Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages | Where-Object { $_.Id -like '*Workload*' } | select -ExpandProperty Id
-              #(Get-VSSetupInstance | Select-VSSetupInstance -Product *).packages | Where-Object { $_.Id -like '*Component*' } | select -ExpandProperty Id
+              
               
               
       - store_artifacts:
