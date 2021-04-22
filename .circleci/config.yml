@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Install build tools 2017
           command: |
-              Install-Module VSSetup -Scope CurrentUser -Force
+              choco upgrade chocolatey
 
               choco install -y visualcpp-build-tools -version 14.0.25420.1
               
