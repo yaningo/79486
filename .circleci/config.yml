@@ -13,7 +13,7 @@ jobs:
           name: Install Nullsoft Scriptable Install System
           command: |
               choco install nsis
-              C:/"Program Files"/NSIS/Bin/makensis.exe
+              C:\"Program Files"\NSIS\Bin\makensis.exe
                             
       - store_artifacts:
           path: C:\ProgramData\chocolatey\logs
