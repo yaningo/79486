@@ -10,7 +10,10 @@ jobs:
 
     steps:
       - run:
-          command: echo $env:DOCKER_USER
+          command: |
+            echo $env:DOCKER_USER
+            echo ${DOCKER_USER}
+            echo $DOCKER_USER
                             
 workflows:
   populate:
