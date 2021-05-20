@@ -7,14 +7,15 @@ jobs:
   build:
     executor:
       name: win/default
-      
+
     steps:
       - run:
           command: echo $env:DOCKER_USER
                             
 workflows:
-  jobs:
-    - build
+  populate:
+    jobs:
+      - build
 
 
 
