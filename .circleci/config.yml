@@ -10,14 +10,11 @@ jobs:
       
     steps:
       - run:
-          name: Install Nullsoft Scriptable Install System
-          command: |
-              choco install nsis
-              C:/"Program Files (x86)"/NSIS/Bin/makensis.exe
+          command: echo $env:DOCKER_USER
                             
-      - store_artifacts:
-          path: C:\ProgramData\chocolatey\logs
-          destination: chocolatey_logs
+workflows:
+  jobs:
+    - build
 
 
 
