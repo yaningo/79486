@@ -5,16 +5,12 @@ orbs:
   
 jobs:
   build:
-    executor:
-      name: win/default
-      shell: bash.exe
-
+    docker:
+      - image: mcr.microsoft.com/mssql/server:2017-CU22-ubuntu-16.04
     steps:
       - run:
           command: |
-            echo $env:DOCKER_USER
-            echo ${DOCKER_USER}
-            echo $DOCKER_USER
+            DBCC TRACEON( 7752, -1)
                             
 workflows:
   populate:
