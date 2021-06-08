@@ -10,7 +10,7 @@ jobs:
     steps:
       - run:
           command: |
-            DBCC TRACEON( 7752, -1)
+            sudo /opt/mssql/bin/mssql-conf traceflag 7752 on
                             
 workflows:
   populate:
