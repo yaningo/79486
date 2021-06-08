@@ -10,7 +10,7 @@ jobs:
         environment:
           ACCEPT_EULA: Y
           SA_PASSWORD: totoI
-          MSSQL_MEMORY_LIMIT_MB: 3200
+          MSSQL_MEMORY_LIMIT_MB: 1200
         command: ["/opt/mssql/bin/sqlservr", "/opt/mssql/bin/mssql-conf traceflag 7752 on"]
     resource_class: large
     steps:
