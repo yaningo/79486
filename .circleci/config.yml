@@ -9,7 +9,7 @@ jobs:
           ACCEPT_EULA: Y
           SA_PASSWORD: t0toIstiti
           MSSQL_MEMORY_LIMIT_MB: 3200
-        command: ["/opt/mssql/bin/sqlservr", "-T7752"]
+        command: ["/opt/mssql/bin/sqlservr"]
     resource_class: large
     steps:
       - run:
