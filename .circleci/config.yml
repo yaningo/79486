@@ -7,11 +7,14 @@ jobs:
   build:
     docker:
       - image: mcr.microsoft.com/mssql/server:2017-CU22-ubuntu-16.04
+        environment:
+          ACCEPT_EULA: Y
+          SA_PASSWORD: totoi
         command: ["/opt/mssql/bin/sqlservr", "/opt/mssql/bin/mssql-conf traceflag 7752 on"]
     steps:
       - run:
           command: |
-            /opt/mssql-tools/bin/sqlcmd -Slocalhost -Usa
+            /opt/mssql-tools/bin/sqlcmd -S localhost -Usa -P "totoi"
                             
 workflows:
   populate:
