@@ -9,14 +9,14 @@ jobs:
       - image: mcr.microsoft.com/mssql/server:2017-CU22-ubuntu-16.04
         environment:
           ACCEPT_EULA: Y
-          SA_PASSWORD: toto&I
+          SA_PASSWORD: totoI
           MSSQL_MEMORY_LIMIT_MB: 3200
         command: ["/opt/mssql/bin/sqlservr", "/opt/mssql/bin/mssql-conf traceflag 7752 on"]
     resource_class: large
     steps:
       - run:
           command: |
-            /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P toto&I -Q "DBCC tracestatus"
+            /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P totoI -Q "DBCC tracestatus"
                             
 workflows:
   populate:
