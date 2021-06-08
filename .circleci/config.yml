@@ -11,7 +11,7 @@ jobs:
     steps:
       - run:
           command: |
-            sudo /opt/mssql/bin/mssql-conf traceflag 7752 on
+            /opt/mssql/bin/mssql-conf traceflag 7752 on
                             
 workflows:
   populate:
