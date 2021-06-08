@@ -14,6 +14,7 @@ jobs:
     steps:
       - run:
           command: |
+            ACCEPT_EULA=y
             sudo sh -c 'curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -'
             sudo sh -c 'curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list'
             sudo apt-get update && sudo apt-get install mssql-tools -y
