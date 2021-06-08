@@ -14,8 +14,9 @@ jobs:
     steps:
       - run:
           command: |
+            ACCEPT_EULA=y
             sudo sh -c 'curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -'
-            sudo sh -c 'curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list'
+            sudo sh -c 'curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list'
             sudo apt-get update && sudo apt-get install mssql-tools
             echo ' export PATH="$PATH:/opt/mssql-tools/bin" >> BASH_ENV
             /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P totoI -Q "CREATE DATABASE formstest COLLATE SQL_Latin1_General_CP1_CS_AS; DBCC tracestatus"
