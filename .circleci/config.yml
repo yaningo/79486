@@ -7,11 +7,11 @@ jobs:
   build:
     docker:
       - image: mcr.microsoft.com/mssql/server:2017-CU22-ubuntu-16.04
-        command: ["/opt/mssql/bin/sqlservr", "/opt/mssql/bin/mssql-conf traceflag 7752 on"]
+        command: ["/opt/mssql/bin/mssql-conf traceflag 7752 on", "/opt/mssql/bin/sqlservr"]
     steps:
       - run:
           command: |
-            /opt/mssql/bin/mssql-conf traceflag 7752 on
+            sqlcmd -Slocalhost -Usa
                             
 workflows:
   populate:
