@@ -6,16 +6,18 @@ orbs:
 jobs:
   build:
     docker:
+      - image: circleci/python
       - image: mcr.microsoft.com/mssql/server:2017-CU22-ubuntu-16.04
         environment:
           ACCEPT_EULA: Y
           SA_PASSWORD: totoI
           MSSQL_MEMORY_LIMIT_MB: 3200
+        command: ["/opt/mssql/bin/sqlservr", "-T7752"]
     resource_class: large
     steps:
       - run:
           command: |
-            /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P totoI -Q "DBCC TRACEON (7752)"
+            /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P totoI -Q "CREATE DATABASE formstest COLLATE SQL_Latin1_General_CP1_CS_AS; DBCC tracestatus"
                             
 workflows:
   populate:
