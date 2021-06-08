@@ -16,7 +16,7 @@ jobs:
     steps:
       - run:
           command: |
-            /opt/mssql-tools/bin/sqlcmd -Slocalhost -Usa -P "toto&I"
+            /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P toto&I -Q "DBCC tracestatus"
                             
 workflows:
   populate:
