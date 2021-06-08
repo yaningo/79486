@@ -11,7 +11,7 @@ jobs:
     steps:
       - run:
           command: |
-            sqlcmd -Slocalhost -Usa
+            /opt/mssql-tools/bin/sqlcmd -Slocalhost -Usa
                             
 workflows:
   populate:
