@@ -4,11 +4,11 @@ jobs:
   build:
     docker:
       - image: circleci/python
-      - image: mcr.microsoft.com/mssql/server:2017-CU22-ubuntu-16.04
+      - image: mcr.microsoft.com/mssql/server:2017-CU24-ubuntu-16.04
         environment:
           ACCEPT_EULA: Y
           SA_PASSWORD: t0toIstiti
-          MSSQL_MEMORY_LIMIT_MB: 3200
+          MSSQL_MEMORY_LIMIT_MB: 1600
         command: ["/opt/mssql/bin/sqlservr", "-T7752"]
     resource_class: medium+
     steps:
