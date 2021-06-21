@@ -8,9 +8,9 @@ jobs:
         environment:
           ACCEPT_EULA: Y
           SA_PASSWORD: t0toIstiti
-          MSSQL_MEMORY_LIMIT_MB: 1600
+          MSSQL_MEMORY_LIMIT_MB: 800
         command: ["/opt/mssql/bin/sqlservr", "-T7752"]
-    resource_class: medium+
+#     resource_class: medium+
     steps:
       - run:
           command: |
