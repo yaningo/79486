@@ -10,7 +10,7 @@ jobs:
           SA_PASSWORD: t0toIstiti
           MSSQL_MEMORY_LIMIT_MB: 3200
         command: ["/opt/mssql/bin/sqlservr", "-T7752"]
-#     resource_class: large
+    resource_class: medium+
     steps:
       - run:
           command: |
